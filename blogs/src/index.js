@@ -6,7 +6,11 @@ import registerServiceWorker from './registerServiceWorker';
 
 let post = {
   title: "Dinosaurs are awesome",
-  author: "Stealthy Stegosaurus",
+  author: [
+    "Stealthy Stegosaurus",
+    "Tiny T-Rex",
+    "Ivory Iguanodon"
+  ],
   body: "Check out this body property",
   comments: [
     "First!",
