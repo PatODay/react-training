@@ -5,6 +5,24 @@ import Comment from './Comment.js';
 import Author from './Author.js';
 
 class Post extends Component {
+  constructor (props) {
+    super()
+    this.state = {
+      body: props.body
+    }
+  }
+  changeBody (e) {
+    let newBody = prompt("What should the new body be?")
+    this.setState({
+      body: newBody
+    })
+  }
+  handleFormInput (e) {
+    this.setState({
+      body: e.target.value
+    })
+  }
+
   render() {
     let allComments = [
       <Comment body={this.props.comments[0]} />,
@@ -27,7 +45,9 @@ class Post extends Component {
         <h1>{this.props.title}</h1>
         {allAuthors}
           <div>
-            <p>{this.props.body}</p>
+            <p>{this.state.body}</p>
+            <button onClick={(e) => this.changeBody(e)}>Edit Body</button>
+            <input type="text" onChange={(e) => this.handleFormInput(e)} />
           </div>
         <h3>Comments:</h3>
         {allComments}
